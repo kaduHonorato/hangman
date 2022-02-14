@@ -1,0 +1,136 @@
+
+    .fill_all
+    {
+    background-color:rgba(0,0,0,.7);
+    position:fixed;
+    display:grid;   
+    top:0;
+    left:0;
+    width:100vw;
+    height:100vh;
+    justify-content:center;
+    align-items:center;
+    }
+
+    .alert_box, .confirm_box
+    {
+    background:#fff; 
+    display: grid; 
+    min-width: 300px; 
+    max-width: 800px; 
+    grid-template-rows:auto minmax(100px,auto) 40px;
+    box-shadow: 2px 2px 2px rgba(1,1,1,.4);
+    padding:10px;    
+    }
+
+    .alert_box div, .confirm_box div
+    {
+    display:grid; 
+    box-sizing:border-box;
+    }
+
+    .alert_box div:nth-child(1), .confirm_box div:nth-child(1)
+    {
+    background-color:rgba(94,94,94,.4);
+    padding-bottom: 4px;
+    }
+
+    .alert_box div .title_alert_box, .confirm_box div .title_confirm_box
+    {
+    background-color:rgba(255,255,255,.8); 
+    padding: 4px;
+    color:rgba(94,94,94,.6);
+    margin:0;
+    font-family:Arial;
+    font-size:20px; 
+    }
+
+    .alert_box div:nth-child(2), .confirm_box div:nth-child(2)
+    {
+    justify-content:center;
+    align-content: center;
+    }
+
+    .alert_box div:last-child
+    {
+    grid-template-columns:70px;
+    }
+
+    .alert_box div:last-child,.confirm_box div:last-child
+    {
+    justify-content:right;
+    align-content: center;
+    }
+
+    .confirm_box div:last-child
+    {
+    grid-template-columns:70px 70px;
+    gap:10px;
+    }
+ 
+    .alert_box div .txt_alert_box, .confirm_box .txt_confirm_box
+    {
+    text-align:justify;
+    font-family:arial;
+    font-size:20px;   
+    color:rgba(94,94,94,.9);
+ 
+    }
+
+    .alert_box div .bt_alert_box, .confirm_box div .bt_confirm_box
+    {
+    cursor:pointer;
+    }
+
+    
+
+
+@media (max-width:980px)
+{
+
+    .alert_box, .confirm_box
+    {
+    max-width: 720px; 
+    }
+
+    .alert_box div .txt_alert_box, .confirm_box .txt_confirm_box
+    {
+    font-size:18px;   
+    }
+
+}
+
+
+@media (max-width:720px)
+{
+
+    .alert_box, .confirm_box
+    {
+    max-width: 460px; 
+    }
+
+
+    .alert_box div .txt_alert_box, .confirm_box .txt_confirm_box
+    {
+    font-size:16px;   
+    }
+    
+}
+
+
+@media (max-width:460px)
+{
+
+    .alert_box, .confirm_box
+    {
+    max-width:300px; 
+    }
+
+
+    .alert_box div .txt_alert_box, .confirm_box .txt_confirm_box
+    {
+    font-size:14px;   
+    }
+  
+}
+

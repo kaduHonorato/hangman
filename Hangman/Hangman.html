@@ -1,0 +1,189 @@
+<!Doctype html>
+<html  lang = "en-us">
+<head>
+    <title>Hangman</title>
+    <meta charset = "UTF-8" />
+    <link rel = "stylesheet" type = "text/css" href = "css/class_message_style.css" />
+    <link rel = "stylesheet" type = "text/css" href = "css/style.css" />
+</head>    
+<body>
+
+<div id = "content">
+
+<h1 class = "main_title">Hangman</h1>
+
+<div id = "main_menu">
+
+    <div class = "buttons_container">
+        <button class = "bt2" id = "bt_open_data_manager_menu">Data Manager</button>
+        <button class = "bt2" id = "bt_start_game">Start Game</button>
+        <button class = "bt2" id = "bt_open_credits_screen">Credits</button>
+    </div>
+</div>
+
+<div id = "credits_screen" class = "ghost">
+
+    <h2>Credits</h2>
+
+    <ul id = "credits_list">
+        <li>Projected and developed by: <a href = "https://github.com/kaduHonorato" title = "Github" target = "blank" >Carlos Eduardo</a></li>
+        <li>Icons made by: <a href = "https://www.freepik.com" title = "Freepik" target = "blank" >Freepik</a> and <a href="https://www.flaticon.com/authors/kiranshastry" title="Kiranshastry" target = "blank" >Kiranshastry</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></li>
+    </ul>
+
+    <div class = "buttons_container">
+        <button id = "bt_close_credits_screen" class = "bt2">Back to Main Menu</button>
+    </div>         
+
+</div>
+
+<div id = "data_manager_menu" class = "ghost">
+
+        <h2>Data Manager</h2>
+  
+        <table id = "data_table">
+            <thead>
+                <tr>
+                    <th>ANSWER</th>
+                    <th>TIP</th>
+                    <th>ACTIVE</th>
+                    <th colspan = "2">OPTIONS</th>
+                </tr>
+            </thead>
+            <tbody>
+            
+            </tbody>
+         </table>
+
+        <div class = "buttons_container">
+            <button id = "bt_open_input_data_menu" class = "bt2">Add New Data</button> 
+            <button id = "bt_close_data_manager_menu" class = "bt2">Back to Main Menu</button>
+        </div>               
+</div>
+
+<div id = "game_screen" class = "ghost">
+
+    <div id = "game_container">
+
+        <div id = "answer_container">
+      
+        </div>
+        <div id = "tip_container">
+            <p>Tip: <span id = "txt_tip"></span></p>
+        </div>
+
+    <div id = "letters_container">
+        <span>Character:</span>
+        <input id = "character" type = "text" maxlength = "1" required />
+        <br/>
+        <br/>
+        <button id = "bt_send_character">Send</button>    
+    </div>
+
+    <div id = "info_sent_letters_container">
+        <p>Sent characters: <span id = "txt_sent_characters"></span></p>
+    </div>
+
+    <div id = "info_errors_container">
+        <p>Errors: <span id = "txt_errors"></span></p>
+    </div>
+
+    </div>
+
+    <div class = "buttons_container">
+        <button id = "bt_start_new_game" class = "bt2">New Game</button>   
+        <button id = "bt_exit_game" class = "bt2">Back to Main Menu</button>   
+    </div>
+
+</div>
+
+<template id = "template_input_data_menu">
+    <div class = "fill_all">
+        <span class = "bt_close_input_data_menu">X</span>
+     
+        <div id = "input_data_menu">
+            <h1 class = 'title'> </h1>
+            <input type = "text" class = "input1 answer" placeholder = "Type the answer here" maxlength = "25" required />
+            <input type = "text" class = "input1 tip" placeholder = "Type the tip here" maxlength = "30" required />
+            
+            <label>
+                Active
+                <input type = "checkbox" class = "status" />
+            </label>
+            <div class = "buttons_container">
+                <button class = "bt_save bt2">Save</button>
+            </div>
+        </div>    
+    </div>
+</template>
+
+<template id = "template_data_table_row">
+    <tr>
+         <td class = "word_col"></td>
+         <td class = "tip_col"></td>
+         <td class = "status_col"><input type = "checkbox"></td>
+         <td class = "update_col"><span class = "bt_open_input_data_menu"><img src = "images/edit.png" alt = "Edit" title = "Edit"></span></td>
+         <td class = "delete_col"><span class = "bt_delete_data"> <img src = "images/delete.png" alt = "Delete" title = "Delete"></span></td>
+    </tr>
+</template>
+
+<template id = "template_box_guess_word">
+    <div class = "fill_all">
+        <div id = "menu_guess_answer">
+            <h2>GUESS!</h1>
+            <div id = "box_answer_container_2">
+
+
+            </div>
+            <div class = "buttons_container" >
+                <button id = "bt_send_word" class = "bt2">Send</button>        
+            </div>
+        </div>
+    </div>
+</template>
+
+<template id = "temp_alert_box">
+    <div class = "fill_all">
+        <div class = "alert_box">
+            <div>
+                <h1 class = "title_alert_box">Message</h1>
+            </div>   
+          
+            <div>
+                <span class = "txt_alert_box"></span>
+            </div>
+            
+            <div>
+                <button class = "bt_alert_box">Ok</button>
+            </div>
+        </div>
+    </div>
+</template>
+
+
+<template id = "temp_confirm_box">
+    <div class = "fill_all">
+        <div class = "confirm_box">
+            <div>
+                <h1 class = "title_confirm_box">Confirm</h1>
+            </div>   
+
+            <div>
+                <span class = "txt_confirm_box"></span>
+            </div>
+            
+            <div>
+                <button class = "bt_confirm_box no">No</button>
+                <button class = "bt_confirm_box yes">Yes</button>
+            </div>
+        </div>
+    </div>
+</template>
+
+</div>
+
+
+<script src = "javascript/local_storage_data.js"></script>
+<script src = "javascript/message.js"></script>
+<script src = "javascript/script.js"></script>
+</body>
+</html>
